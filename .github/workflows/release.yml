@@ -51,6 +51,12 @@ jobs:
           KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
         run: |
           echo "$KEYSTORE_BASE64" | base64 --decode > android/app/release.jks
+          # Check the signing secrets now, so a bad paste fails in seconds with a clear message.
+          if ! keytool -list -keystore android/app/release.jks -storepass "$KEYSTORE_PASSWORD" -alias "$KEY_ALIAS" >/dev/null 2>&1; then
+            echo "::error::Signing secrets don't match. ANDROID_KEYSTORE_BASE64 must be the full contents of release.jks.base64.txt (one long line), and ANDROID_KEYSTORE_PASSWORD / ANDROID_KEY_ALIAS must come from the same SECRETS-README.txt."
+            echo "Decoded keystore size: $(wc -c < android/app/release.jks) bytes"
+            exit 1
+          fi
           {
             echo "storeFile=release.jks"
             echo "storePassword=$KEYSTORE_PASSWORD"

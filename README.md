@@ -12,6 +12,12 @@
 > **Two versions of Attendy.** This is the first one, a practice project that keeps all data in local SQLite databases on one phone.
 > **[Attendy](https://github.com/Umair-Habibx123/attendy)** is the rebuilt version on Firebase: real accounts, an admin panel shared by the whole team, admin-approved leave, server-time check-ins and CSV/PDF reports.
 
+| User home | Attendance history | Profile |
+| :---: | :---: | :---: |
+| <img src="docs/screenshots/user-home.jpg" width="200" alt="User home with Mark Attendance, Mark Leave and View Attendance; the absent-after-1 PM notice is showing"> | <img src="docs/screenshots/user-view-attendance.jpg" width="200" alt="Attendance history filtered by date range"> | <img src="docs/screenshots/profile.jpg" width="200" alt="Update profile: photo, username and password"> |
+| **Admin home** | **All users** | **User attendance** |
+| <img src="docs/screenshots/admin-home.jpg" width="200" alt="Admin home with View All Users"> | <img src="docs/screenshots/admin-all-users.jpg" width="200" alt="All users list with search, view and delete"> | <img src="docs/screenshots/admin-user-attendance.jpg" width="200" alt="A user's details with add or delete attendance for a date range, a report button, and a per-day status editor"> |
+
 ## Features
 
 **Everyone**
@@ -27,6 +33,7 @@
 **Admins**
 - **All users:** see everyone and open a user's details
 - **Attendance by date range:** add or delete records for a user
+- **Correct a day:** change any recorded day between present, absent and leave
 - **Leave applications:** read a user's leave reason
 - **Reports:** present, absent and leave totals for a date range
 - **Delete users,** together with their attendance and leave records
