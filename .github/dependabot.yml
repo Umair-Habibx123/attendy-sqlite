@@ -1,0 +1,22 @@
+# Opens pull requests for new releases of pinned actions and Dart packages.
+# Major versions are skipped: they often break the build (e.g. google_fonts 8 -> 9)
+# and need a manual upgrade tested on a phone.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
+  - package-ecosystem: pub
+    directory: /
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      dart-packages:
+        patterns: ["*"]
